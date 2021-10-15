@@ -7,7 +7,13 @@ let id = 0;
 
 
 addBtn.addEventListener("click", function() {
-    addItem(task.value);});
+    addItem(task.value);
+});
+document.addEventListener('keypress', function (enter) {
+    if (enter.key === 'Enter') {
+        addItem(task.value);
+    }
+});
 delAll.addEventListener("click", clearAll);
 window.onload = onLoadPage;
 
