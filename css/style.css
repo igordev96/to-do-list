@@ -102,6 +102,7 @@ ol{
 .item{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 
 }
@@ -146,4 +147,39 @@ footer{
     transform: translateX(-50%);
     font-weight: 100;
     color: var(--purple);
+}
+
+a{
+    cursor: url(../assets/cursor.png), auto;
+    text-decoration: none;
+    color: var(--purple);
+}
+
+#small-screen{
+    display: none;
+}
+
+@media only screen and (max-width: 740px){
+    #container{
+        height: 90vh;
+        width: 90vw;
+    }
+
+    .top{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #task{
+        width: 85vw;
+    }
+
+
+    #big-screen{
+        display: none;
+    }
+    
+    #small-screen{
+        display: block;
+    }
 }

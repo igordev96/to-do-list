@@ -42,40 +42,44 @@ function onLoadPage(){
 
 
 function addItem(taskValue){
+    if(taskValue.length===0){
+        alert("Type a real task");
+    } else {
+        let div = document.createElement("div");
+        let input = document.createElement("input");
+        let li = document.createElement("li");
+        let img = document.createElement("img");
 
-    let div = document.createElement("div");
-    let input = document.createElement("input");
-    let li = document.createElement("li");
-    let img = document.createElement("img");
+        div.setAttribute("class", "item");
+        div.setAttribute("id", id);
+        input.setAttribute("type", "checkbox");
+        li.setAttribute("class", "align");
+        img.setAttribute("onclick", "removeItem(this.id)");
+        img.setAttribute("class", "bin");
+        img.setAttribute("id", id);
+        img.setAttribute("src", "./assets/bin.png");
 
-    div.setAttribute("class", "item");
-    div.setAttribute("id", id);
-    input.setAttribute("type", "checkbox");
-    li.setAttribute("class", "align");
-    img.setAttribute("onclick", "removeItem(this.id)");
-    img.setAttribute("class", "bin");
-    img.setAttribute("id", id);
-    img.setAttribute("src", "./assets/bin.png");
+        div.appendChild(input);
+        div.appendChild(li);
 
-    div.appendChild(input);
-    div.appendChild(li);
+        let text = document.createTextNode(taskValue);
 
-    let text = document.createTextNode(taskValue);
+        
 
+        li.appendChild(text);
+
+        li.appendChild(img);
+
+        list.appendChild(div);
+
+
+        localStorage.setItem(id,taskValue);
+
+        task.value = "";
+
+        id++;
+    }
     
-
-    li.appendChild(text);
-
-    li.appendChild(img);
-
-    list.appendChild(div);
-
-
-    localStorage.setItem(id,taskValue);
-
-    task.value = "";
-
-    id++;
 }
 
 
